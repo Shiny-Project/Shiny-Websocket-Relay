@@ -9,9 +9,11 @@ function handler (req, res) {
 }
 
 io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
+    console.log('Client connected.');
     socket.on('event', function (data) {
-        socket.emit('event', data);
+        console.log('Message received: ' + data);
+        socket.broadcast.emit('event', data);
+        console.log('Message broadcasted.')
     });
 });
 
