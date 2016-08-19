@@ -2,7 +2,9 @@ var app = require('http').createServer(handler);
 var io = require('socket.io')(app);
 var fs = require('fs');
 
-app.listen(3737);
+var port = 3737; // 监听端口设置
+
+app.listen(port);
 
 function handler (req, res) {
 
@@ -17,5 +19,5 @@ io.on('connection', function (socket) {
     });
 });
 
-console.log('Listening on localhost:3737');
+console.log('Listening on localhost:' + port);
 
