@@ -11,9 +11,9 @@ function handler (req, res) {
 }
 
 io.on('connection', function (socket) {
-    console.log('Client connected.');
+    console.log('Client connected. From:' + socket.handshake.address);
     socket.on('event', function (data) {
-        console.log('Message received: ' + data);
+        console.log('Message received: ' + data + 'from:' + socket.handshake.address);
         socket.broadcast.emit('event', data);
         console.log('Message broadcasted.')
     });
