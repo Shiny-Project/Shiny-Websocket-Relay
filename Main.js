@@ -12,12 +12,12 @@ function handler (req, res) {
 }
 
 io.on('connection', function (socket) {
-    console.log('Client connected. From:' + socket.handshake.address);
-    if (socket.handshake.address !== serverAddress){
-        return;
-    }
+    console.log('Client connected. From: ' + socket.handshake.address);
+    // if (socket.handshake.address !== serverAddress){
+    //     return;
+    // }
     socket.on('event', function (data) {
-        console.log('Message received: ' + data + 'from:' + socket.handshake.address);
+        console.log('Message received: ' + data + 'From: ' + socket.handshake.address);
         socket.broadcast.emit('event', data);
         console.log('Message broadcasted.')
     });
