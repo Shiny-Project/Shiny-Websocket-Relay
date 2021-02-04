@@ -1,9 +1,9 @@
-let app = require('http').createServer(handler);
-let io = require('socket.io')(app);
-let fs = require('fs');
+const app = require('http').createServer(handler);
+const io = require('socket.io')(app);
+const fs = require('fs');
 
-let port = 3737; // 监听端口设置
-let serverAddress = '::ffff:106.186.22.246';
+const port = 3737; // 监听端口设置
+const serverAddress = '::ffff:106.186.22.246';
 
 app.listen(port);
 
@@ -21,6 +21,9 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('event', data);
         console.log('Message broadcasted.')
     });
+    socket.on('ping', function(socketId, message) {
+        socket.to(socketId).emit('pong', {});
+    })
 });
 
 console.log('Listening on localhost:' + port);

@@ -1,8 +1,8 @@
 {
-  "name": "Mika",
+  "name": "shiny-websocket-relay",
   "version": "0.0.1",
   "description": "A websocket server allowing to transfer push messages from a client to another client.",
   "dependencies": {
-    "socket.io": "^1.4.8"
+    "socket.io": "^3.1.1"
   }
 }
