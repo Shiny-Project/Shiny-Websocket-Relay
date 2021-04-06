@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "description": "A websocket server allowing to transfer push messages from a client to another client.",
   "dependencies": {
-    "socket.io": "^3.1.1"
+    "socket.io": "^4.0.1"
   }
 }
